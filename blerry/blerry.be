@@ -6,7 +6,7 @@
 # Provides MQTT Discovery and Reporting for BLE Devices
 #######################################################################
 
-var blerry_version = 'v0.2.4-dev'
+var blerry_version = 'v0.2.5-dev'
 
 # TODO
 #   Resource Optimization
@@ -1079,4 +1079,6 @@ tasmota.add_cmd("BlerryConfigURL", blerry_helpers.cmd_url_config)
 tasmota.add_cmd("BlerryAction", / cmd, idx, payload, payload_json -> blerry.execute_action(cmd, idx, payload, payload_json))
 blerry.load_success()
 
-load('blerry_newBLE.be')
+if path.exists('blerry_setup.be')
+  load('blerry_newBLE.be')
+end

@@ -88,7 +88,7 @@ def blerry_setup_process_rules()
     return true
   end
   if size(r3['Rules']) == 0
-    tasmota.cmd("Rule3 ON System#Boot DO br load('blerry.be') ENDON")
+    tasmota.cmd("Rule3 ON System#Boot DO backlog delay 20; br load('blerry.be') ENDON")
     tasmota.cmd("Rule3 1")
     print("Created and Enabled Blerry Load Rule in Rule3")
     return true

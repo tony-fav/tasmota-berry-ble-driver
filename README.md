@@ -105,7 +105,7 @@ Next, to use:
 - Upload `blerry.be` to the file system of the ESP32. (`http://your.tas.device.ip/ufsd?`)
 - Create the following Tasmota Rule:
 ```
-Rule1 ON System#Boot DO br load('blerry.be') ENDON
+Rule1 ON System#Boot DO backlog delay 20; br load('blerry.be') ENDON
 ```
 - Enable the rule:
 ```
