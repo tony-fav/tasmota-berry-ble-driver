@@ -1,4 +1,4 @@
-# BLErry v0.2.3-dev - A BLE Gateway inside Tasmota32 using Berry
+# BLErry v0.2.5-dev - A BLE Gateway inside Tasmota32 using Berry
 
 Here's an intro video by @digiblur to get an idea of the how and why! **HOWEVER, setup has changed, gotten simpler, since this video, see below.** Make sure to check out the discussions below.
 
@@ -89,7 +89,6 @@ would rewrite the entire configuration file to be the file from the provided URL
 would rewrite the entire configuration file to be the provided JSON.
 
 These commands work like regular Tasmota commands, available through the console, serial, MQTT, HTTP request, etc.
-
 
 ### Alternate to System#Boot Rule
 
@@ -258,7 +257,7 @@ Final reminder, you must convert this yaml to json and save a `blerry_config.jso
   - Try SO57 0; This seems to improve reliability some.
 - If your device mac address has the /1 indicating a 'private static mac', that /1 should be included in the configuration. For example, `BlerrySetDevice {"D4E4A3XXXXXX/1":{"alias":"Switchbot_Temp_1","model":"WoSensorTH"}}`
 
-## Supported Devices in BLErry v0.2.3-dev
+## Supported Devices in BLErry v0.2.5-dev
 
 Please discuss any devices you would like supported [here](https://github.com/tony-fav/tasmota-blerry/discussions/22) as well as if you are working on supporting any device!
 

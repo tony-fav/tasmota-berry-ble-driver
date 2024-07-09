@@ -108,7 +108,6 @@ class blerry_helpers
     var config = blerry_helpers.read_config()
     tasmota.resp_cmnd(json.dump({string.toupper(payload): config['devices'][string.toupper(payload)]}))
   end
-
   static def cmd_del_device(cmd, idx, payload, payload_json)
     var config = blerry_helpers.read_config()
     var new_dev = json.load(payload)
@@ -713,7 +712,6 @@ class Blerry_Device
     end
     return false
   end
-
   def publish_action_discovery()
     var topic_fmt = 'homeassistant/button/blerry_' + self.alias + '/%s/config'
     if size(self.actions_to_discover)
@@ -882,7 +880,6 @@ class Blerry
     self.devices = {}
     for m:self.device_config.keys()
       var device = Blerry_Device(m, self.device_config[m], self)
-
       # host based attributes here
       self.devices[m] = device
       active = active || device.active
