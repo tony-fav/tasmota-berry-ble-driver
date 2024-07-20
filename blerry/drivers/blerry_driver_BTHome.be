@@ -133,8 +133,13 @@ def blerry_handle(device, advert)
       while i < size(data)
         var mt = data[i]
         var dp_len = 1
+        var is_signed = false
         if Meas_Types[mt].contains('d_l')
           dp_len = Meas_Types[mt]['d_l']
+          if dp_len < 0
+            is_signed = true
+            dp_len = -dp_len
+          end
         end
         var dp_dtype = Meas_Types[mt]['d']
         var d_fact = 1
@@ -147,11 +152,10 @@ def blerry_handle(device, advert)
         end
         var dp_rval = data[i+1..i+1+dp_len]
         
-        if dp_len > 0
-          dp_val = dp_rval.get(0, dp_len)
-        else
-          dp_len = -dp_len
+        if is_signed
           dp_val = dp_rval.geti(0, dp_len)
+        else
+          dp_val = dp_rval.get(0, dp_len)
         end
 
         if dp_dtype[0..1]=='B_'
